@@ -1,4 +1,4 @@
 # Fluorescence_Fluctuations_Simulation
 
-![Alt text](img/logo.webp)
+<img src="img/logo.webp" alt="Fluorescence Simulation" width="300"/>
 
