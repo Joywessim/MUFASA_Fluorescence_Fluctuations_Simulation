@@ -7,4 +7,4 @@
 
 | PALM Simulator | STORM Simulator | Fluctuations Simulator |
 |:--------------:|:---------------:|:----------------------:|
-| <img src="img/emitted_photons_poisson_palm.gif" width="300"> | <img src="img/emitted_photons_poisson_palm.gif" width="300"> | <img src="img/emitted_photons_poisson_palm.gif" width="300"> |
+| <img src="img/emitted_photons_poisson_palm.gif" width="300"> | <img src="img/emitted_photons_poisson_storm.gif" width="300"> | <img src="img/emitted_photons_poisson_ff.gif" width="300"> |
