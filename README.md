@@ -1,4 +1,4 @@
-# Fluorescence_Fluctuations_Simulation
+# Fluorescence Fluctuations Simulation
 
 <div align="center">
 <img src="img/logo.webp" alt="Fluorescence Simulation" width="300"/>
