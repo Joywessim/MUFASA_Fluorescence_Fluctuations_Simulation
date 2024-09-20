@@ -1,7 +1,7 @@
 # Fluorescence Fluctuations Simulation
 
 <div align="center">
-<img src="img/logo.webp" alt="Fluorescence Simulation" width="300"/>
+<img src="img/logo_bg.png" alt="Fluorescence Simulation" width="300"/>
 </div>
 
 This repository provides tools to simulate super-resolution imaging techniques such as STORM and PALM, as well as fluorescence fluctuations, using Markov chains to model transitions between quantum states. The simulations are designed to help researchers and students understand the underlying processes and visualize the effects of photophysics and camera imperfections on the final images.
