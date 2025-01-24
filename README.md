@@ -1,4 +1,4 @@
-# Fluorescence Fluctuations Simulation
+# Fluorescence Fluctuations Simulation: MUFASA Simulator
 
 <div align="center">
 <img src="img/logo_bg.png" alt="Fluorescence Simulation" width="300"/>
