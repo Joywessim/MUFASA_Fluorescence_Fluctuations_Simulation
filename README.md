@@ -23,7 +23,7 @@ This repository provides tools to simulate super-resolution imaging techniques s
   - Visualize laser power ranges and camera results.
 
 - **Multi-Protocol Support:**
-  - Includes blinking and fluorescence fluctuation protocols.
+  - Includes blinking and fluorescence fluctuation protocols: Fluorescence Fluctuations (FF), STORM, PALM, Blinking
   - Models molecule transitions using Continuous-Time Markov Chains (CTMC).
  
 - **Advanced Camera Effects:**
