@@ -98,14 +98,10 @@ DOI: 10.1371/journal.pone.0161602. PMID: 27583365; PMCID: PMC5008722.
 
 Below is a step-by-step visual guide to using the MUFASA GUI.
 
-### Step 1 – Launch the GUI
 ![Step 1](GUI/TUTO/1.jpg)
 
-### Step 2 – Load Molecule Configuration
 ![Step 2](GUI/TUTO/2.jpg)
 
-### Step 3 – Simulate Emissions
 ![Step 3](GUI/TUTO/3.jpg)
 
-### Step 4 – View Simulation Results
 ![Step 4](GUI/TUTO/4.jpg)
