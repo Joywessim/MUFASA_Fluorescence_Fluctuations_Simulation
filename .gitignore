@@ -1,0 +1,3 @@
+*.npy
+examples/time_traces/**/adu_stack.npy
+examples/time_traces/**/blurred_stack.npy
