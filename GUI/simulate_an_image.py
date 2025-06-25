@@ -1,7 +1,7 @@
 import sys
 import os
 
-sys.path.append("Fluorescence_Fluctuations_Simulation/")
+sys.path.append("MUFASA_Fluorescence_Fluctuations_Simulation/")
 # Ensure Matplotlib uses PySide6
 os.environ["QT_API"] = "pyside6"
 
@@ -18,12 +18,12 @@ from PySide6.QtWidgets import QFileDialog
 from PySide6.QtCore import QCoreApplication
 from matplotlib.colors import LinearSegmentedColormap
 
-from continuous_time.simulate_ctmc import simulate_protocol
-from continuous_time.utils import fluctuations_to_images
+from simulate_ctmc import simulate_protocol
+from utils import fluctuations_to_images
 
-from continuous_time.utils import colors_fluctuations_output 
+from utils import colors_fluctuations_output 
 
-from simulation_results import SimulationResultsWindow
+from GUI.simulation_results import SimulationResultsWindow
 
 class SimulateStructurePage(QWidget):
     def __init__(self, stacked_widget=None):
@@ -86,10 +86,10 @@ class SimulateStructurePage(QWidget):
         molecule_form_layout = QFormLayout()
         self.epsilon_input = QLineEdit(str(self.molecule["epsilon"]))
         self.exc_lifetime_input = QLineEdit(str(self.molecule["excitation_lifetime"]))
-        self.cycles_before_bleaching_input = QLineEdit(str(f"{self.molecule["num_cycles_before_bleaching"]:.1e}"))
+        self.cycles_before_bleaching_input = QLineEdit(f"{self.molecule['num_cycles_before_bleaching']:.1e}")
         self.alpha_nr_input = QLineEdit(str(self.molecule["alpha_nr"]))
         self.d_e_input = QLineEdit(str(self.molecule["d_E"]))
-        self.alpha_isc_input = QLineEdit(str(f"{self.molecule["alpha_isc"]:.1e}"))
+        self.alpha_isc_input = QLineEdit(f"{self.molecule['alpha_isc']:.1e}")
         molecule_form_layout.addRow("Epsilon (M^-1 cm^-1):", self.epsilon_input)
         molecule_form_layout.addRow("Excitation Lifetime (s):", self.exc_lifetime_input)
         molecule_form_layout.addRow("Cycles Before Bleaching:", self.cycles_before_bleaching_input)

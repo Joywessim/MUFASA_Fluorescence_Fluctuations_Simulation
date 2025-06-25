@@ -40,17 +40,17 @@ Follow these steps to set up the project on your local machine:
 
    
 bash
-   git clone https://github.com/YourUsername/Fluorescence_Fluctuations_Simulation.git
-   cd Fluorescence_Fluctuations_Simulation
+   git clone https://github.com/YourUsername/MUFASA_Fluorescence_Fluctuations_Simulation.git
+   cd MUFASA_Fluorescence_Fluctuations_Simulation
 
 
-2.Run the application
+2.**Run the application:**
 
 Launch the main GUI by running the following command:
 
   
 bash
-   python GUI/main_page.py
+   python -m GUI.main_page
 
 
 ## Usage 
@@ -91,3 +91,21 @@ DOI: 10.1371/journal.pone.0161602. PMID: 27583365; PMCID: PMC5008722.
 
 - This folder is designed to provide a modular and expandable structure for different fluorescence simulation protocols.
 
+
+
+## GUI Quick Tuto
+## 🧪 MUFASA GUI Tutorial
+
+Below is a step-by-step visual guide to using the MUFASA GUI.
+
+### Step 1 – Launch the GUI
+![Step 1](GUI/TUTO/1.jpg)
+
+### Step 2 – Load Molecule Configuration
+![Step 2](GUI/TUTO/2.jpg)
+
+### Step 3 – Simulate Emissions
+![Step 3](GUI/TUTO/3.jpg)
+
+### Step 4 – View Simulation Results
+![Step 4](GUI/TUTO/4.jpg)

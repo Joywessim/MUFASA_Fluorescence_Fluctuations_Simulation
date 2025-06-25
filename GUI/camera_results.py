@@ -18,8 +18,8 @@ from matplotlib.colors import LinearSegmentedColormap
 import tifffile
 
 
-from continuous_time.camera import apply_camera
-from continuous_time.utils import colors_poisson_output, colors_us_output, color_mean_poisson,color_mean_poisson_pixel ,color_mean_us  ,color_mean_us_pixel  
+from src.camera import apply_camera
+from src.utils import colors_poisson_output, colors_us_output, color_mean_poisson,color_mean_poisson_pixel ,color_mean_us  ,color_mean_us_pixel  
 
 
 class CameraSimulationResultsWindow(QWidget):

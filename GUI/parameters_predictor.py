@@ -1,7 +1,7 @@
 import sys
 import os
 
-sys.path.append("Fluorescence_Fluctuations_Simulation/")
+sys.path.append("MUFASA_Fluorescence_Fluctuations_Simulation/")
 # Ensure Matplotlib uses PySide6
 os.environ["QT_API"] = "pyside6"
 

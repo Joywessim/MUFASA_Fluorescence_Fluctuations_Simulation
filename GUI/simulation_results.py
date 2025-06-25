@@ -1,7 +1,7 @@
 import sys
 import os
 
-sys.path.append("Fluorescence_Fluctuations_Simulation/")
+sys.path.append("MUFASA_Fluorescence_Fluctuations_Simulation/")
 # Ensure Matplotlib uses PySide6
 os.environ["QT_API"] = "pyside6"
 
@@ -15,9 +15,9 @@ from PySide6.QtWidgets import QCheckBox,QApplication, QWidget, QVBoxLayout, QHBo
 from PySide6.QtCore import QTimer, Qt
 from PySide6.QtWidgets import (QApplication, QWidget, QVBoxLayout, QHBoxLayout, QPushButton, 
                                QLineEdit, QLabel, QRadioButton, QButtonGroup, QStackedWidget)
-from continuous_time.camera import apply_camera, apply_camera_advanced
-from camera_results import CameraSimulationResultsWindow
-from continuous_time.utils import colors_fluctuations_output
+from src.camera import apply_camera, apply_camera_advanced
+from GUI.camera_results import CameraSimulationResultsWindow
+from src.utils import colors_fluctuations_output
 from matplotlib.colors import LinearSegmentedColormap
 
 class SimulationResultsWindow(QWidget):

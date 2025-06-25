@@ -1,11 +1,15 @@
 import sys
+import os
+
+sys.path.append("MUFASA_Fluorescence_Fluctuations_Simulation/")
+
 from PySide6.QtWidgets import QApplication, QWidget, QHBoxLayout, QPushButton, QVBoxLayout, QLabel, QStackedWidget
 from PySide6.QtGui import QPixmap
 from PySide6.QtCore import Qt
-from simulate_one_molecule_page import SimulateOneMoleculePage
-from simulate_an_image import SimulateStructurePage
-from parameters_predictor import ParametersPredictorPage
-from laser_range import LaserRangePage
+from GUI.simulate_one_molecule_page import SimulateOneMoleculePage
+from GUI.simulate_an_image import SimulateStructurePage
+from GUI.parameters_predictor import ParametersPredictorPage
+from GUI.laser_range import LaserRangePage
 
 class MainPage(QWidget):
     def __init__(self, stacked_widget):
@@ -19,7 +23,7 @@ class MainPage(QWidget):
         # Create QLabel to display the image
         self.image_label = QLabel(self)
         # Resize the image using the scaled method
-        pixmap = QPixmap("Fluorescence_Fluctuations_Simulation/Interface/logo2.png")  # Replace with the actual path to your image
+        pixmap = QPixmap("GUI/logo2.png")  # Replace with the actual path to your image
         pixmap = pixmap.scaled(200, 200, Qt.KeepAspectRatio, Qt.SmoothTransformation)  # Adjust 200x200 to your desired size
 
 

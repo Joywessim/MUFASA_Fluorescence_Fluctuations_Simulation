@@ -1,7 +1,12 @@
 import sys
 import os
 
-sys.path.append("Fluorescence_Fluctuations_Simulation/")
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.abspath(os.path.join(current_dir, ".."))
+src_dir = os.path.join(project_root, "src")
+
+if src_dir not in sys.path:
+    sys.path.insert(0, src_dir)
 # Ensure Matplotlib uses PySide6
 os.environ["QT_API"] = "pyside6"
 
@@ -19,7 +24,7 @@ from PySide6.QtCore import Qt
 from scipy.stats import poisson
 import numpy as np
 
-from continuous_time.simulate_ctmc import simulate_protocol  # Ensure this module is accessible
+from simulate_ctmc import simulate_protocol  # Ensure this module is accessible
 
 class SimulateOneMoleculePage(QWidget):
     def __init__(self, stacked_widget=None):

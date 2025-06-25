@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 from scipy.stats import poisson
 from joblib import Parallel, delayed
 
-from continuous_time.simulate_ctmc import simulate_protocol
+from simulate_ctmc import simulate_protocol
 
 
  # Define a helper function to simulate for a given power

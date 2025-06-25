@@ -1,7 +1,6 @@
 import numpy as np
 import sys 
-sys.path.append("Fluorescence_Fluctuations_Simulation/continuous_time/")
-sys.path.append("Fluorescence_Fluctuations_Simulation/")
+sys.path.append("./src/")
 
 from utils import (divide_into_frames,
                    excitation_rate,
@@ -145,9 +144,17 @@ def rate_matrix(protocol, epsilon, excitation_lifetime, excitation_wavelength,N_
 def compute_rates(epsilon, excitation_lifetime, excitation_wavelength,N_c, excitation_P , alpha_nr, d_E,alpha_isc, activation_rate=None, activation=False ):
     if activation==False:
         k_01 = excitation_rate(epsilon, excitation_P, excitation_wavelength) 
-        k_10 = 1/excitation_lifetime 
-        k_1T = alpha_isc*k_10
-        k_T0 = alpha_nr 
+        k_10 = 1/excitation_lifetime
+        if alpha_nr is not None:
+            k_1T = alpha_isc*k_10
+        else:
+            k_1T = None
+
+        if alpha_nr is not None:
+            k_T0 = alpha_nr 
+        else:
+            k_T0 = None
+
         k_1B = 1/(N_c * excitation_lifetime) 
         
         return k_01, k_10, k_1T, k_T0, k_1B 
