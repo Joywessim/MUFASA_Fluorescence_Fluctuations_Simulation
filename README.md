@@ -94,7 +94,6 @@ DOI: 10.1371/journal.pone.0161602. PMID: 27583365; PMCID: PMC5008722.
 
 
 ## GUI Quick Tuto
-## 🧪 MUFASA GUI Tutorial
 
 Below is a step-by-step visual guide to using the MUFASA GUI.
 
