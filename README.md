@@ -40,7 +40,7 @@ Follow these steps to set up the project on your local machine:
 
    
 bash
-   git clone [https://github.com/YourUsername/MUFASA_Fluorescence_Fluctuations_Simulation.git](https://github.com/Joywessim/MUFASA_Fluorescence_Fluctuations_Simulation)
+   git clone [https://github.com/Joywessim/MUFASA_Fluorescence_Fluctuations_Simulation.git](https://github.com/Joywessim/MUFASA_Fluorescence_Fluctuations_Simulation)
    cd MUFASA_Fluorescence_Fluctuations_Simulation
 
 
