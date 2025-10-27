@@ -110,6 +110,7 @@ def rate_matrix(protocol, epsilon, excitation_lifetime, excitation_wavelength,N_
 
         initial_state = 0
         k_01, k_10, k_1T, k_T0, k_1B = compute_rates(epsilon, excitation_lifetime, excitation_wavelength,N_c, excitation_P , alpha_nr, d_E,alpha_isc, activation_rate=None)
+        sanity_check_rates(k_01, k_10, k_1T, k_T0, k_1B)
         return np.array(
             [[-k_01, k_01,0],
              [k_10, -(k_10 + k_1B), k_1B], 
@@ -117,8 +118,10 @@ def rate_matrix(protocol, epsilon, excitation_lifetime, excitation_wavelength,N_
             ), initial_state
     elif protocol == "STORM" or protocol == "Blinking":
 
+
         initial_state = 2
         k_01, k_10, k_1T, k_T0, k_1B = compute_rates(epsilon, excitation_lifetime, excitation_wavelength,N_c, excitation_P , alpha_nr, d_E,alpha_isc, activation_rate=None)
+        sanity_check_rates(k_01, k_10, k_1T, k_T0, k_1B)
         return np.array(
             [[-k_01, k_01,0,0],
              [k_10, -(k_10 + k_1B + k_1T), k_1T, k_1B], 
@@ -130,6 +133,7 @@ def rate_matrix(protocol, epsilon, excitation_lifetime, excitation_wavelength,N_
         
         initial_state = 0
         k_na, k_01, k_10, k_1T, k_T0, k_1B = compute_rates(epsilon, excitation_lifetime, excitation_wavelength,N_c, excitation_P , alpha_nr, d_E,alpha_isc, activation_rate, activation=True)
+        sanity_check_rates(k_01, k_10, k_1T, k_T0, k_1B)
         return np.array(
             [[-k_na,k_na, 0,0],
              [0,-k_01, k_01,0],
@@ -169,6 +173,54 @@ def compute_rates(epsilon, excitation_lifetime, excitation_wavelength,N_c, excit
         
         return k_na, k_01, k_10, k_1T, k_T0, k_1B
 
+def sanity_check_rates(k_01, k_10, k_1T, k_T0, k_1B):
+    """
+    Check for physically inconsistent or extreme rate values.
+    Gives informative messages indicating which ones are too high/low
+    relative to expected magnitudes.
+    """
+    # basic validity
+    rates = {"k_01": k_01, "k_10": k_10, "k_1T": k_1T, "k_T0": k_T0, "k_1B": k_1B}
+    for name, val in rates.items():
+        if val is None or not np.isfinite(val) or val <= 0:
+            raise ValueError(f"Invalid rate {name}={val}")
+
+    msg = []
+
+    # relative consistency checks
+    if k_1T > 1e3 * k_10:
+        msg.append(
+            f"⚠️ k_1T={k_1T:.2e} ≫ k_10={k_10:.2e}: intersystem crossing (α_isc) likely too HIGH "
+            ""
+        )
+    elif k_1T < 1e-6 * k_10:
+        msg.append(
+            f"⚠️ k_1T={k_1T:.2e} ≪ k_10={k_10:.2e}: intersystem crossing (α_isc) extremely LOW "
+            "(triplet state almost never reached)"
+        )
+
+    if k_T0 > k_10 * 1e3:
+        msg.append(
+            f"⚠️ k_T0={k_T0:.2e} ≫ k_10={k_10:.2e}: triplet decay unrealistically fast"
+        )
+    elif k_T0 < k_10 * 1e-6:
+        msg.append(
+            f"⚠️ k_T0={k_T0:.2e} ≪ k_10={k_10:.2e}: triplet decay too slow (long dark states)"
+        )
+
+    if k_1B > k_10:
+        msg.append(
+            f"⚠️ k_1B={k_1B:.2e} > k_10={k_10:.2e}: bleaching faster than relaxation — molecule dies instantly"
+        )
+    elif k_1B < k_10 * 1e-10:
+        msg.append(
+            f"⚠️ k_1B={k_1B:.2e} ≪ k_10={k_10:.2e}: bleaching extremely slow (may never occur)"
+        )
+
+    if msg:
+        print("\n".join(msg))
+
+    return True
 
 
 

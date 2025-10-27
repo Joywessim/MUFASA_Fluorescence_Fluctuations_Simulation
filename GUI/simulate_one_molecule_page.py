@@ -45,12 +45,12 @@ class SimulateOneMoleculePage(QWidget):
 
         # Default values for the molecule parameters dictionary
         self.molecule = {
-            "epsilon": 239000,                          # Extinction coefficient M^-1 cm^-1
-            "excitation_lifetime": 1e-9,                # Excited state lifetime, s (1 ns)
-            "num_cycles_before_bleaching": 1e5,         # Number of cycles before bleaching
-            "alpha_nr": 1e-8,                           # Proportional to Quantum yield
+            "epsilon": 56000,                          # Extinction coefficient M^-1 cm^-1
+            "excitation_lifetime": 2.6e-9,                # Excited state lifetime, s (1 ns)
+            "num_cycles_before_bleaching": 5e5,         # Number of cycles before bleaching
+            "alpha_nr": 2,                           # Proportional to Quantum yield
             "d_E": 0.5,                                 # Energy difference (eV)
-            "alpha_isc": 1e7                            # Intersystem crossing rate
+            "alpha_isc": 5e-4                            # Intersystem crossing rate
         }
 
         self.init_ui()
@@ -290,6 +290,9 @@ class SimulateOneMoleculePage(QWidget):
 
             # Filter out zeros from photons
             photons_nonzero = photons[photons != 0]
+            if len(photons_nonzero) == 0:
+                print(" No photons emitted — check molecule parameters.")
+                return
 
             # Plot the histogram
             counts, bins, patches = ax3.hist(
